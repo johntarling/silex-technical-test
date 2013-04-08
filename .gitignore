@@ -3,3 +3,5 @@ vendor/*
 
 # Sqlite DB
 src/app.db
+
+.vagrant/machines/default/virtualbox/id

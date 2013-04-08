@@ -1,7 +1,17 @@
 {
     "require": {
         "silex/silex": "1.0.*",
-		"doctrine/dbal": "2.2.*"
+		"doctrine/dbal": "2.2.*",
+		"behat/behat": "2.4.*@stable",
+		"behat/mink": "1.4.*@stable",
+        "behat/mink-extension": "*",
+        "behat/mink-goutte-driver": "*",
+		"twig/twig": ">=1.8,<2.0-dev",
+		"twitter/bootstrap": "2.3.*"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+
+    "config": {
+        "bin-dir": "bin/"
+    }
 }
