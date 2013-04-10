@@ -1,4 +1,7 @@
 {
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
     "require": {
         "silex/silex": "1.0.*",
 		"doctrine/dbal": "2.2.*",
@@ -10,7 +13,6 @@
 		"twitter/bootstrap": "2.3.*"
     },
     "minimum-stability": "dev",
-
     "config": {
         "bin-dir": "bin/"
     }
