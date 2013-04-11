@@ -1,6 +1,7 @@
 require_recipe "apt"
 require_recipe "git"
 require_recipe "php::default"
+require_recipe "php::module_curl"
 require_recipe "php::module_sqlite3"
 require_recipe "nginx::default"
 

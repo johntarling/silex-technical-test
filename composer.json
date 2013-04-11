@@ -1,7 +1,4 @@
 {
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*"
-    },
     "require": {
         "silex/silex": "1.0.*",
 		"doctrine/dbal": "2.2.*",
@@ -9,10 +6,16 @@
 		"behat/mink": "1.4.*@stable",
         "behat/mink-extension": "*",
         "behat/mink-goutte-driver": "*",
+        "phpunit/phpunit": "3.7.*",
 		"twig/twig": ">=1.8,<2.0-dev",
 		"twitter/bootstrap": "2.3.*"
     },
     "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "Solution": "src"
+        }
+    },
     "config": {
         "bin-dir": "bin/"
     }
