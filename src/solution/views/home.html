@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Home {% endblock %}
+{% block meta_description %}A homepage showing the 10 latest news items{% endblock %}
+{% block content %}
+<h1>Latest news</h1>
+<ul class="news-articles">
+{% for article in articles %}
+  {% include 'article-teaser.html' %}
+{% endfor %}
+</ul>
+{% endblock %}

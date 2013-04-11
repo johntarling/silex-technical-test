@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Article {{ article.title }}{% endblock %}
+{% block meta_description %}A page showing the full content of article {{ article.id }}{% endblock %}
+{% block content %}
+<article class="span12">
+          <h1>{{ article.title }}</h1>
+          <p class="lead">{{ article.short_desc }}</p>
+          <p class="article-body">{{ article.body }}</p>
+          <span class="label">Article id: {{ article.id }}</span>
+        </article>
+{% endblock %}
