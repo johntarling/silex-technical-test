@@ -11,5 +11,5 @@ Feature: Home
 
   Scenario: Viewing a news article from the homepage
     When I go to "http://33.33.33.3"
-    And I follow ".article:first-child a.btn-primary"
+    And I follow "Read more »"
     Then I should see an "article p.article-body" element

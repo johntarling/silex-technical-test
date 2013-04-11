@@ -2,6 +2,9 @@ White October Technical Test
 ===============================
 
 This is a simple [Silex](http://silex.sensiolabs.org/) app. We would like you to extend and fix it.
+
+ * John Tarlings proposed [solution](Solution.md).
+
 ## Setup
 #### Setup with Vagrant
 
