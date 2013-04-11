@@ -59,4 +59,14 @@ class FeatureContext extends MinkContext
         $articleFound = $this->app['db']->fetchAssoc($sql, array($id));
         assertNotNull($articleFound['id'], "No article with id:" . $id . " found");
     }
+
+    /**
+     * @Given /^there is not an article with an id of (\d+)$/
+     */
+    public function thereIsNotAnArticleWithAnIdOf($id)
+    {
+        $sql = "SELECT id FROM news Where id = ?";
+        $articleFound = $this->app['db']->fetchAssoc($sql, array($id));
+        assertNull($articleFound['id'], "Cannot complete test as article with id " . $id . " exists");
+    }
 }
