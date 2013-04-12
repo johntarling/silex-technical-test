@@ -47,3 +47,11 @@ $app->error(function (Symfony\Component\HttpKernel\Exception\NotFoundHttpExcepti
     	$app['twig']->render('error.html', array('message' => $message)
     ), 404);
 });
+
+//Handle DB errors
+$app->error(function (PDOException $e) use ($app) {
+    $message = $e->getMessage() ?: 'There has been a database error';
+    return new Symfony\Component\HttpFoundation\Response(
+    	$app['twig']->render('error.html', array('message' => $message)
+    ), 500);
+});

@@ -1,61 +1,22 @@
-White October Technical Test
-===============================
+White October Technical Test Solution by John Tarling
+=====================================================
 
-This is a simple [Silex](http://silex.sensiolabs.org/) app. We would like you to extend and fix it.
-
- * John Tarlings proposed [solution](Solution.md).
+## Introduction
+This is my solution created for the [White October Technical Test](Test.md).  I am breaking the solution down into releases and have noted my [proposed features for each release](Releases.md).
 
 ## Setup
-#### Setup with Vagrant
+The setup for my solution is the same as for the initial [test](Test.md) if running as a new install.  If you are going to copy the solution files into an existing test install then you will need to run:
 
-This project is setup with [Vagrant](http://vagrantup.com) and comes with Chef cookbooks. Follow [the setup guide](http://vagrantup.com/v1/docs/getting-started/index.html) to get your machine ready for Vagrant 
+	php composer.phar update
 
-Once you have it installed in the project root run "vagrant up". This will provision your box, install [Composer](http://getcomposer.org) and then install your vendors.
+This will download the new dependencies and update the autoload file to include them and the new application namespace.
 
-#### Setup with your own PHP Environment 
-
-You need to be running PHP5.3.3>, a webserver (Apache/Nginx) and the PHP extension sqlite. [Composer](http://getcomposer.org) is used to install Silex and the required vendors.
-
-Install [Composer](http://getcomposer.org):
-
-	curl -s http://getcomposer.org/installer | php
+## Tests
+To run the behat tests type:
 	
-Install the vendors:
+	bin/behat
 
-	php composer.phar install
-	
-#### Setup the SQLite data
+Note: The tests will show failures if http://33.33.33.3/setup has not been visited to set up the database yet.  Once the database has been setup these tests will pass.
 
-We have created a very hacky way of getting data into the app. In the project you will find a route called "setup". So the first thing you need to do is visit this route in your browser.
-
-	http://33.33.33.3/setup
-	
-This should respond with a "done"
-
-You should be able to visit http://33.33.33.3/1 to view article 1.
-
-The Tasks
-------
-* Create a new route matching "/", the home route. 
-	* Load in the latest 10 articles in the database
-	* Display them in a list to the user displaying title and short description. 
-	* Give the user a link to click to view the full article.
-* Modify the article view route to display the article, rather than the simple test that is currently there.
-* Install Twig Via Composer as per these [instructions](http://silex.sensiolabs.org/doc/providers/twig.html)
-* Rather than responding inline with some html, use [Twig](http://twig.sensiolabs.org/) templates for the home and article routes.  
-* Use [twitter bootstrap](http://twitter.github.com/bootstrap/) for your templates 
-
-Extras..
-------
-If you'd like to go the extra mile then maybe do some of the following
-
-* Add tests
-	* [PHPUnit](http://www.phpunit.de/manual/current/en/index.html)?
-	* [Behat](http://behat.org/)?
-* Come up with a better solution to the setup route for setting up.
-* Add paging with [Pagerfanta](https://github.com/whiteoctober/Pagerfanta)
-* The database structure is a bit basic, add some more fields suitable for a news site
-* Doctrine ORM to manage articles, installed with composer? 
-	* https://github.com/mjakubowski/nutwerk-orm-extension 
-	* http://martinsikora.com/silex-doctrine2-orm
-* Anything else you'd like to show us or fix
+## Branches
+The master branch will contain the latest stable build, other milestone releases are available as separate branches.
