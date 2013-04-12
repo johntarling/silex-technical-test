@@ -1,4 +1,5 @@
 # features/article.feature
+@viewing
 Feature: Article
   As a website visitor
   If I visit a news article URL

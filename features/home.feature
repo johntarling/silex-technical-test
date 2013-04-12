@@ -1,4 +1,5 @@
 # features/home.feature
+@viewing
 Feature: Home
   As a website visitor
   I want to visit the homepage

@@ -46,8 +46,8 @@ class FeatureContext extends MinkContext
     public function thereAreOrMoreArticlesInTheDatabase($count)
     {
         $sql = "SELECT COUNT(id) as count FROM news";
-        $dbcount = $this->app['db']->fetchAssoc($sql);
-        assertGreaterThanOrEqual($count,$dbcount["count"]);
+        $dbCount = $this->app['db']->fetchAssoc($sql);
+        assertGreaterThanOrEqual($count,$dbCount["count"]);
     }
 
     /**
@@ -69,4 +69,15 @@ class FeatureContext extends MinkContext
         $articleFound = $this->app['db']->fetchAssoc($sql, array($id));
         assertNull($articleFound['id'], "Cannot complete test as article with id " . $id . " exists");
     }
+
+    /**
+     * @Given /^there is no "([^"]*)" table$/
+     */
+    public function thereIsNoTable($tableName)
+    {
+        $sql = "SELECT name FROM sqlite_master WHERE type='table' AND name = ?";
+        $tableExists = $this->app['db']->fetchAssoc($sql, array($tableName));
+        assertFalse($tableExists, $tableName . " exists");
+    }
+
 }
