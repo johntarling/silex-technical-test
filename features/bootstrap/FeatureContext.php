@@ -41,6 +41,40 @@ class FeatureContext extends MinkContext
     }
 
     /**
+     * @BeforeScenario @newssetup
+     */
+    public function dropNewsTable()
+    {
+        $sql = "DROP TABLE IF EXISTS news";
+        $this->app['db']->query($sql);
+    }
+
+    /**
+     * @BeforeScenario @update
+     */
+    public function revertNewsTableSchema()
+    {
+        //Drop current news table
+        $this->dropNewsTable();
+        //Create based on old schema
+        $sql = "CREATE TABLE IF NOT EXISTS news (
+                id  INT NOT NULL,
+                title TEXT,
+                short_desc TEXT,
+                body TEXT,
+                PRIMARY KEY(id)
+                )";
+        $this->app['db']->query($sql);
+        //Populate it with original test entities
+        for($i=1; $i<11; $i++) {
+            $sql = "INSERT INTO news (id, title, short_desc, body) VALUES 
+                ($i, 'Test $i', 'Test $i', 'Test $i')";
+            $this->app['db']->query($sql);
+        }
+
+    }
+
+    /**
      * @Given /^there are (\d+) or more articles in the database$/
      */
     public function thereAreOrMoreArticlesInTheDatabase($count)
@@ -78,6 +112,21 @@ class FeatureContext extends MinkContext
         $sql = "SELECT name FROM sqlite_master WHERE type='table' AND name = ?";
         $tableExists = $this->app['db']->fetchAssoc($sql, array($tableName));
         assertFalse($tableExists, $tableName . " exists");
+    }
+
+    /**
+     * @Given /^the news table is not updated$/
+     */
+    public function theNewsTableIsNotUpdated()
+    {
+        $pass = FALSE;
+        $sql = "SELECT posted FROM news";
+        try {
+            $this->app['db']->fetchAssoc($sql);
+        } catch (Exception $e) {
+            $pass = TRUE;
+        } 
+        assertTrue($pass);
     }
 
 }
