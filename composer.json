@@ -1,14 +1,14 @@
 {
     "require": {
         "silex/silex": "1.0.*",
-		"doctrine/dbal": "2.2.*",
 		"behat/behat": "2.4.*@stable",
 		"behat/mink": "1.4.*@stable",
         "behat/mink-extension": "*",
         "behat/mink-goutte-driver": "*",
         "phpunit/phpunit": "3.7.*",
 		"twig/twig": ">=1.8,<2.0-dev",
-		"twitter/bootstrap": "2.3.*"
+		"twitter/bootstrap": "2.3.*",
+        "taluu/doctrine-orm-provider": "1.0.*"
     },
     "minimum-stability": "dev",
     "autoload": {
