@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block meta_description %}Application update required} {% endblock %}
+{% block content %}
+ <div class="span2"></div>
+        <div class="span8 hero-unit">
+          <h1>Update needed</h1>
+          <p class="lead">It looks like you have been using an older version of the application, I need to update myself so you can use me again.
+          </p>
+          <p>
+            <a href="/update/run" class="btn btn-primary btn-large">
+              Ok, update please »
+            </a>
+          </p>
+        </div>
+        <div class="span2"></div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block meta_description %}Action completed} {% endblock %}
+{% block content %}
+<div class="span2"></div>
+        <div class="span8 hero-unit">
+          <h1>Complete</h1>
+          <p class="alert alert-{{alert}}">
+            {{ status }}
+          </p>
+          <p>
+            <a class="btn btn-primary btn-large">
+              Ok, lets go back to homepage &raquo;
+            </a>
+          </p>
+        </div>
+        <div class="span2"></div>
+{% endblock %}
