@@ -20,6 +20,11 @@ If you are going to copy the solution files into an existing test install then y
 
 This will download the new dependencies and update the autoload file to include them and the new application namespace.
 
+## Usage
+
+* You can visit the home route at [http://33.33.33.3](http://33.33.33.3)
+* You can view a news article if you know its id by visiting http://33.33.33.3/id e.g. [http://http://33.33.33.3/1](http://33.33.33.3/1)
+
 ## Tests
 There are a number of behat test scenarios, these can be run as follows:
 	
