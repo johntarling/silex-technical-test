@@ -9,7 +9,7 @@ Proposed solution releases
   * Article view route available with Twig templated output
 
 ##Release 1.1##
-  * Admin page to load records
+  * Improve setup process to load initial news records
   * Add extra fields to news article
 
 ##Release 1.2##
