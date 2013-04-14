@@ -1,8 +1,11 @@
 	  <li>
-	    <div class="well article">
-	      <span class="label">{{ article.id }}</span>
-	      <h2>{{ article.title | e }}</h2>
-	      <p>{{ article.short_desc}}</p>
-	      <p><a class="btn btn-primary" href="/{{ article.id }}">Read more &raquo;</a></p>
+	    <div class="well article clearfix">
+	      <div class="thumbnail span2"><img src="img/160x120.png" alt="example image" /></div>
+	      <div class="span10">
+		      <span class="label">Posted on : {{ article.posted }}</span>
+		      <h2>{{ article.title | e }}</h2>
+		      <p>{{ article.shortDesc}}</p>
+		      <p><a class="btn btn-primary" href="/{{ article.id }}">Read more &raquo;</a></p>
+		  </div>  
 	    </div>
 	  </li>

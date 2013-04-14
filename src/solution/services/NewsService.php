@@ -2,23 +2,23 @@
 
 namespace Solution\Services;
 
-use Doctrine\DBAL\Connection;
+use Doctrine\ORM\EntityManager;
+use Solution\Entities\NewsArticle;
 
 class NewsService
 {
 
-
 /**
  * @var Doctrine\DBAL\Connection
  */
-private $db;
+private $em;
 
     /**
-    * @param Doctrine\DBAL\Connection $db 
+    * @param Doctrine\ORM\EntityManager; $em 
     */
-	public function __construct(Connection $db)
+	public function __construct(EntityManager $em)
 	{
-		$this->db = $db;
+		$this->em = $em;
 	}
 
 	/**
@@ -26,12 +26,9 @@ private $db;
 	*/
 	public function getLatestNewsArticles($count)
 	{
-		//Treat the higher rowid as newest article for now as we don't have a date
-		$sql = "SELECT * FROM news order by rowid desc LIMIT :count";
-		$stmt = $this->db->prepare($sql);
-		$stmt->bindValue("count", $count);
-		$stmt->execute();
-		$articles = $stmt->fetchAll();
+		$query = $this->em->createQuery('SELECT a FROM Solution\Entities\NewsArticle a ORDER BY a.id');
+		$query->setMaxResults();
+		$articles = $query->getResult();
 		return $articles;
 	}
 
@@ -40,11 +37,9 @@ private $db;
 	*/
 	public function getArticleById($id)
 	{
-		$sql = "SELECT * FROM news where id = :id";
-		$stmt = $this->db->prepare($sql);
-		$stmt->bindValue("id", $id);
-		$stmt->execute();
-		$article = $stmt->fetch();
+		$query = $this->em->createQuery('SELECT a FROM Solution\Entities\NewsArticle a WHERE a.id = :id');
+		$query->setParameter('id', $id);
+		$article = $query->getResult();
 		return $article;
 	}
 

@@ -4,8 +4,8 @@
 {% block content %}
 <article class="span12">
           <h1>{{ article.title }}</h1>
-          <p class="lead">{{ article.short_desc }}</p>
+          <p class="lead">{{ article.shortDesc }}</p>
           <p class="article-body">{{ article.body }}</p>
-          <span class="label">Article id: {{ article.id }}</span>
+          <span class="label">Posted on: {{ article.posted }}</span>
         </article>
 {% endblock %}

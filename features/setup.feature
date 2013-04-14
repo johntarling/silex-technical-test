@@ -11,6 +11,7 @@ Feature: Setup
     When I go to "http://33.33.33.3"
     Then I should see "Setup"
 
+  @newssetup
   Scenario: Running the setup routine
     Given there is no "news" table
     When I go to "http://33.33.33.3/setup"
@@ -23,6 +24,7 @@ Feature: Setup
     When I go to "http://33.33.33.3"
     Then I should see "Update needed"
 
+  @update
   Scenario: Updating the news table schema
     Given the news table is not updated
     When I go to "http://33.33.33.3/update"
